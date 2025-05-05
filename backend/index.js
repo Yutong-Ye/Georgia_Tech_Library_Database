@@ -76,24 +76,45 @@ app.get('/books/:isbn', async (req, res) => {
 
 // UPDATE a book by ISBN
 app.put('/books/:isbn', async (req, res) => {
+  const { isbn } = req.params;
   const {
-    title, author, subject_area, description,
-    publish_date, publisher, language, binding_type,
-    edition, is_lendable, acquisition_status
+    title,
+    author,
+    subject_area,
+    description,
+    publish_date,
+    publisher,
+    language,
+    binding_type,
+    edition,
+    is_lendable,
+    acquisition_status
   } = req.body;
 
   let conn;
   try {
     conn = await pool.getConnection();
-    const result = await conn.query(
+    await conn.query(
       `UPDATE books SET 
-        title=?, author=?, subject_area=?, description=?, publish_date=?, 
-        publisher=?, language=?, binding_type=?, edition=?, is_lendable=?, acquisition_status=?
-      WHERE isbn=?`,
-      [title, author, subject_area, description, publish_date,
-       publisher, language, binding_type, edition, is_lendable, acquisition_status, req.params.isbn]
+        title = ?, author = ?, subject_area = ?, description = ?, publish_date = ?, 
+        publisher = ?, language = ?, binding_type = ?, edition = ?, 
+        is_lendable = ?, acquisition_status = ? 
+      WHERE isbn = ?`,
+      [
+        title,
+        author,
+        subject_area,
+        description,
+        publish_date,
+        publisher,
+        language,
+        binding_type,
+        edition,
+        is_lendable,
+        acquisition_status,
+        isbn
+      ]
     );
-    if (result.affectedRows === 0) return res.status(404).send('Book not found');
     res.send('Book updated successfully');
   } catch (err) {
     console.error('Update error:', err);
@@ -103,13 +124,19 @@ app.put('/books/:isbn', async (req, res) => {
   }
 });
 
+
+
 // DELETE a book by ISBN
 app.delete('/books/:isbn', async (req, res) => {
+  console.log('DELETE request for ISBN:', req.params.isbn);
+  const { isbn } = req.params;
   let conn;
   try {
     conn = await pool.getConnection();
-    const result = await conn.query("DELETE FROM books WHERE isbn = ?", [req.params.isbn]);
-    if (result.affectedRows === 0) return res.status(404).send('Book not found');
+    const result = await conn.query('DELETE FROM books WHERE isbn = ?', [isbn]);
+    if (result.affectedRows === 0) {
+      return res.status(404).send('Book not found');
+    }
     res.send('Book deleted successfully');
   } catch (err) {
     console.error('Delete error:', err);
@@ -118,7 +145,6 @@ app.delete('/books/:isbn', async (req, res) => {
     if (conn) conn.end();
   }
 });
-
 app.listen(3001, () => {
   console.log('Server running on port 3001');
 });
