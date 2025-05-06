@@ -14,7 +14,7 @@ function BookList() {
 
   const fetchBooks = async () => {
     try {
-      const res = await fetch('http://localhost:3001/books');
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/books`);
       const data = await res.json();
       setBooks(data);
     } catch (err) {
@@ -50,21 +50,21 @@ function BookList() {
     };
 
     try {
-      if (isEditing) {
+    if (isEditing) {
         // UPDATE
-        await fetch(`http://localhost:3001/books/${editingIsbn}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(bookPayload)
+        await fetch(`${process.env.REACT_APP_API_URL}/books/${editingIsbn}`, {
+            method: 'PUT',          
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookPayload)
         });
-      } else {
+        } else {
         // CREATE
-        await fetch('http://localhost:3001/books', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(bookPayload)
+        await fetch(`${process.env.REACT_APP_API_URL}/books`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookPayload)
         });
-      }
+        }
 
       await fetchBooks();
       setFormData({ title: '', author: '', isbn: '' });
@@ -77,9 +77,9 @@ function BookList() {
 
   const handleDelete = async isbn => {
     try {
-      await fetch(`http://localhost:3001/books/${isbn}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/books/${isbn}`, {
         method: 'DELETE'
-      });
+        });
       await fetchBooks();
     } catch (err) {
       console.error('Delete error:', err);
@@ -92,7 +92,7 @@ function BookList() {
     setFormData({
       title: book.title,
       author: book.author,
-      isbn: book.isbn // optional since we don't update isbn in PUT
+      isbn: book.isbn 
     });
   };
 
@@ -134,7 +134,7 @@ function BookList() {
           value={formData.isbn}
           onChange={handleChange}
           required
-          disabled={isEditing} // ISBN should not change during edit
+          disabled={isEditing} 
         />
         <button type="submit">{isEditing ? 'Update Book' : 'Add Book'}</button>
         {isEditing && (
