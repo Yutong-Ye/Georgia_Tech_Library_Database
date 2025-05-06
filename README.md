@@ -59,6 +59,6 @@ This is the main page of your Georgia Tech Library web app. It provides a unifie
 
 - Create Book: A form at the bottom lets users input a new book's title, author, and ISBN, then add it to the list using the "Add Book" button.
 
-- Edit Book: Each book in the list has an Edit button that allows inline editing of the title and author (ISBN is used as the key).
+- Edit Book: Each book in the list has an Edit button that allows inline editing of the title and author using ISBN is used as the key.
 
 - Delete Book: Each book also has a Delete button that removes the book from the system after confirmation.

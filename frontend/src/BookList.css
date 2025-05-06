@@ -1,0 +1,19 @@
+.book-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .book-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .book-item button:hover {
+    background-color: #2980b9;
+  }
+  
