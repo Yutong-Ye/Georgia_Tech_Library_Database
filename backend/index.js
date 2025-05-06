@@ -14,6 +14,11 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Georgia Tech Library API 🎉');
+});
+
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
