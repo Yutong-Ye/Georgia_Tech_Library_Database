@@ -8,6 +8,23 @@
 
 The Georgia Tech Library System is a full-stack application that allows users to manage a comprehensive library database. Users can add, search, edit, and delete books, making it a helpful tool for academic or personal library management. It also includes data filtering features and dynamic UI components for a smooth user experience.
 
+## Project Initialization
+
+-   Start by cloning the repository, navigate to https://github.com/Yutong-Ye/Georgia_Tech_Library_Database
+- cd Georgia_Tech_Library_Database
+
+- Navigate to the frontend directory
+`cd frontend`
+- Start the React frontend server
+`npm run dev`
+
+- Navigate to the backend directory
+`cd backend`
+- Install backend dependencies
+`npm install`
+- Run the backend server
+`node index.js`
+
 ## Features
 
 -   Book Management: Add, view, edit, and delete books with detailed information.
@@ -32,38 +49,16 @@ The Georgia Tech Library System is a full-stack application that allows users to
 -   https://www.mermaidchart.com/raw/9114e912-3e48-4a70-925b-b43555ae5fc9?theme=light&version=v0.1&format=svg
 
 
-## Project Initialization
 
--   Start by cloning the repository, navigate to https://gitlab.com/sry-wtv/wish-to-visit
--   Enter the project directory by navigating to it.
--   Set up a persistent Docker volume using the command docker volume wtv.
--   Construct the Docker environment by executing docker compose build.
--   Initiate the application with the command docker compose up.
+### Viewing React Front End and React Routes
 
-### Viewing React Front End and FastAPI Docs
+-   **Home Page** [`http://localhost:3000/`]
+This is the main page of your Georgia Tech Library web app. It provides a unified interface for managing books in the library database. Users can:
 
--   To view the React frontend, navigate to https://sry-wtv.gitlab.io/wish-to-visit/ in your internet browser.
--   To view the FastAPI docs, navigate to http://localhost:8000/docs#/ in your internet browser.
+- View All Books: A list of all books is displayed with their title, author, and ISBN.
 
-### React Routes
+- Create Book: A form at the bottom lets users input a new book's title, author, and ISBN, then add it to the list using the "Add Book" button.
 
--   **Home Page** `http://localhost:3000/`
-    -   Landing/ Homepage that welcomes you
--   **Create Wishes Form** `http://localhost:5173/wishes`
-    -   Once you submit the form to create wish, automatically directs you back to view wishlist page
--   **View Wishlist Form** `http://localhost:5173/wishlist`
-    -   View your wishlist
--   **Create Visit Form** `http://localhost:5173/visit`
-    -   Once you submit the form to create wish, automatically directs you back to the visitlist page
--   **View Visitlist Form** `http://localhost:5173/visitlist`
-    -   View the places you have traveled to
--   **View List of all Countries** `http://localhost:5173/countries`
-    -   View all countries and filter them down by a keyword search or by region
--   **View Country Detail** `http://localhost:5173/countries/:country`
-    -   View details about a specific country
--   **View Search Results** `http://localhost:5173/search/:searchTerm`
-    -   View results of a search
--   **View Interests** `http://localhost:5173/interests`
-    -   View logged in users interests
--   **Create Interests Form** `http://localhost:5173/interests/create`
-    -   Once you submit the form to create interests, automatically directs you back to the interests view page.
+- Edit Book: Each book in the list has an Edit button that allows inline editing of the title and author (ISBN is used as the key).
+
+- Delete Book: Each book also has a Delete button that removes the book from the system after confirmation.
