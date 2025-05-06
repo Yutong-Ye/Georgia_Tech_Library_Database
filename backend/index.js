@@ -4,27 +4,20 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-// const booksRouter = require('./routes/books'); 
-// app.use('/books', booksRouter);
-
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-// Start server
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// Create MariaDB pool
+
 const pool = mariadb.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -34,7 +27,6 @@ const pool = mariadb.createPool({
   connectionLimit: 5,
 });
 
-// CREATE a new book
 app.post('/books', async (req, res) => {
   const {
     isbn, title, author, subject_area, description,
@@ -60,7 +52,7 @@ app.post('/books', async (req, res) => {
   }
 });
 
-// READ all books
+
 app.get('/books', async (req, res) => {
   let conn;
   try {
@@ -75,7 +67,7 @@ app.get('/books', async (req, res) => {
   }
 });
 
-// READ a single book by ISBN
+
 app.get('/books/:isbn', async (req, res) => {
   let conn;
   try {
@@ -91,7 +83,7 @@ app.get('/books/:isbn', async (req, res) => {
   }
 });
 
-// UPDATE a book by ISBN
+
 app.put('/books/:isbn', async (req, res) => {
   const { isbn } = req.params;
   const {
@@ -142,8 +134,6 @@ app.put('/books/:isbn', async (req, res) => {
 });
 
 
-
-// DELETE a book by ISBN
 app.delete('/books/:isbn', async (req, res) => {
   console.log('DELETE request for ISBN:', req.params.isbn);
   const { isbn } = req.params;
@@ -162,6 +152,4 @@ app.delete('/books/:isbn', async (req, res) => {
     if (conn) conn.end();
   }
 });
-app.listen(3001, () => {
-  console.log('Server running on port 3001');
-});
+
