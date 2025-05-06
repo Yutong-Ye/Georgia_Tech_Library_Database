@@ -10,17 +10,19 @@ The Georgia Tech Library System is a full-stack application that allows users to
 
 ## Features
 
--   User Authentication: Secure login and registration functionality to protect user accounts.
--   Wishlist Management: Users can create, view, and delete wishes, making it easy to keep track of their goals and aspirations.
--   Country Information: Provides users with information about various countries, enriching their wishlist experience.
--   Interests Management: Users can add their interests on their account that are then displayed and can be edited.
+-   Book Management: Add, view, edit, and delete books with detailed information.
+-   Search & Filter: Easily filter books by author, subject area, year, and language.
+-   Frontend UI: Responsive interface for seamless user interaction.
+-   Backend API: RESTful API endpoints for CRUD operations.
+-   Database Integration: Persistent data storage using MariaDB.
+
 
 ## Technologies Used
 
--   Frontend: React.js for a dynamic and responsive user interface.
--   Backend: FastAPI for a high-performance, easy-to-use framework.
--   Database: PostgreSQL for reliable and efficient data storage.
--   Containerization: Docker for easy deployment and environment consistency.
+-   Frontend: React.js
+-   Backend: Express.js
+-   Database: MariaDB
+-   Hosting: Localhost 
 
 ## API Endpoints
 - [API Endpoints](./docs/apiendpoints.md)  
