@@ -29,22 +29,8 @@ The Georgia Tech Library System is a full-stack application that allows users to
 
 ## Wireframe
 
--   https://excalidraw.com/#room=a73ee2397d26aab63da9,aktQ-JqJT1lskIksYmPCPg
+-   https://www.mermaidchart.com/raw/9114e912-3e48-4a70-925b-b43555ae5fc9?theme=light&version=v0.1&format=svg
 
-
-## For Registered Users:
-
--   Edit your profile settings
--   View country information and from there
--   Manage Wishes: Create, view, and delete wishes from your personalized list
--   Manage countries that the user has previously visited
--   Manage interests: Submits interests that are then displayed
-
-## For All Users:
-
--   View country information.
--   Create an account
--   Login to account
 
 ## Project Initialization
 
@@ -61,16 +47,8 @@ The Georgia Tech Library System is a full-stack application that allows users to
 
 ### React Routes
 
--   **Home Page** `http://localhost:5173`
-    -   Landing/ Homepage that welcomes you to the next adventure
--   **Signup** `http://localhost:5173/signup`
-    -   Sign up for an account
--   **Login** `http://localhost:5173/login`
-    -   Log in to your account
--   **MyProfile** `http://localhost:5173/settings`
-    -   View your profile settings
--   **Edit MyProfile** `http://localhost:5173/settings/edit`
-    -   Can edit logged in users account information
+-   **Home Page** `http://localhost:3000/`
+    -   Landing/ Homepage that welcomes you
 -   **Create Wishes Form** `http://localhost:5173/wishes`
     -   Once you submit the form to create wish, automatically directs you back to view wishlist page
 -   **View Wishlist Form** `http://localhost:5173/wishlist`
