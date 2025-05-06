@@ -25,7 +25,7 @@ sudo mariadb -u root < backend/init.sql
 
 ## 📊 Entity Relationship Diagram (ERD)
 
-![Library ERD](https://www.mermaidchart.com/raw/9114e912-3e48-4a70-925b-b43555ae5fc9?theme=light&version=v0.1&format=svg)
+![Entity Relationship Diagram](https://www.mermaidchart.com/raw/9114e912-3e48-4a70-925b-b43555ae5fc9?theme=light&version=v0.1&format=svg)
 
 
 **Sample JSON Body:**
